@@ -1,21 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<layout  xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <data
-        >
-        <variable
-            name="userDataViewModel"
-            type="com.project.farmingapp.viewmodel.UserDataViewModel" />
-    </data>
-<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/drawerLayout"
     tools:openDrawer="start"
-    >
+
+    tools:context=".view.dashboard.DashboardActivity">
 
     <include
         layout="@layout/app_bar_main"
@@ -33,4 +25,3 @@
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_drawer_menu" />
 </androidx.drawerlayout.widget.DrawerLayout>
-</layout>

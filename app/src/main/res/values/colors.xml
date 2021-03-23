@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#79C551</color>
-    <color name="colorPrimaryDark">#654321</color>
-<!--    <color name="colorPrimaryDark">#79C551</color>-->
+    <color name="colorPrimaryDark">#3700B3</color>
     <color name="colorAccent">#FFF</color>
     <color name="white">#FFFFFF</color>
     <color name="greenlite">#F56ADA23</color>
@@ -11,6 +10,12 @@
     <color name="fontColor">#FF404A3A</color>
     <color name="secondary2">#88d498</color>
     <color name="secondary3">#c6dabf</color>
-
-
+<color name="chip">
+    <selector xmlns:android="http://schemas.android.com/apk/res/android">
+        <item android:state_checked="true"
+            android:color="@color/colorPrimary" />
+        <item android:state_checked="false"
+            android:color="@color/secondary" />
+    </selector>
+</color>
 </resources>
