@@ -66,6 +66,8 @@ class dashboardFragment : Fragment(), CellClickListener {
             param2 = it.getString(ARG_PARAM2)
         }
 
+//        sharedPreferences = activity?.getSharedPreferences(getString(R.string.app_name), Context.MODE_PRIVATE)!!
+
         viewModel = ViewModelProviders.of(requireActivity())
             .get<WeatherViewModel>(WeatherViewModel::class.java)
 
@@ -80,6 +82,7 @@ class dashboardFragment : Fragment(), CellClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+
 
         viewModel.getCoordinates().observe(viewLifecycleOwner, Observer {
             Log.d("DashFrag", it.toString())
@@ -99,6 +102,18 @@ class dashboardFragment : Fragment(), CellClickListener {
             })
         })
 
+//        viewModel.newDataTrial.observe(viewLifecycleOwner, Observer {
+//
+//            Log.d("Observed Here", "Yes")
+//            weathTempTextWeathFrag.text = (it.list[0].main.temp - 273).toInt().toString() + "\u2103"
+//            humidityTextWeathFrag.text = "Humidity: " + it!!.list[0].main.humidity.toString() + " %"
+//            windTextWeathFrag.text = "Wind: " + it!!.list[0].wind.speed.toString() + " km/hr"
+//
+//            var iconcode = it!!.list[0].weather[0].icon
+//            var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
+//            Glide.with(activity!!.applicationContext).load(iconurl)
+//                .into(weathIconImageWeathFrag)
+//        })
 
         viewModel2.ecommLiveData.observe(viewLifecycleOwner, Observer {
             var itemsToShow = (0..it.size-1).shuffled().take(4) as List<Int>
@@ -115,7 +130,7 @@ class dashboardFragment : Fragment(), CellClickListener {
         super.onViewCreated(view, savedInstanceState)
 
         setHasOptionsMenu(true)
-        (activity as AppCompatActivity).supportActionBar?.title = "Agri India"
+        (activity as AppCompatActivity).supportActionBar?.title = "Farming App"
 
         weatherCard.setOnClickListener {
             weatherFragment = WeatherFragment()
@@ -129,6 +144,7 @@ class dashboardFragment : Fragment(), CellClickListener {
                 .commit()
             data?.let { it1 -> viewModel.messageToB(it1) }
         }
+//        getWeather()
 
         viewModel = ViewModelProviders.of(requireActivity())
             .get<WeatherViewModel>(WeatherViewModel::class.java)
@@ -140,6 +156,9 @@ class dashboardFragment : Fragment(), CellClickListener {
                 }
             })
 
+//        articlesTitle.setOnClickListener {
+//            viewModel.messageToB()
+//        }
 
         cat4.setOnClickListener {
             articleListFragment = ArticleListFragment()
@@ -175,9 +194,47 @@ class dashboardFragment : Fragment(), CellClickListener {
             }
     }
 
+//    fun getWeather() {
+//        val response: Call<WeatherRootList> =
+//            WeatherApi.weatherInstances.getWeather("23.0225", "72.5714")
+//
+//        response.enqueue(object : Callback<WeatherRootList> {
+//            override fun onFailure(call: Call<WeatherRootList>, t: Throwable) {
+//                Log.d("WeatherRepository", "Error Occured")
+//            }
+//
+//            override fun onResponse(
+//                call: Call<WeatherRootList>,
+//                response: Response<WeatherRootList>
+//            ) {
+//                if (response.isSuccessful) {
+//                    data = response.body()!!
+//                    Log.d("Dashboard Fragment", data.toString())
+//
+////                    sharedPreferences.edit().putString("weatherJSONShared", data.toString()).apply()
+//                    weathTempTextWeathFrag.text = (data!!.list[0].main.temp - 273).toInt().toString() + "\u2103"
+//                    humidityTextWeathFrag.text = "Humidity: " + data!!.list[0].main.humidity.toString() + " %"
+//                    windTextWeathFrag.text = "Wind: " + data!!.list[0].wind.speed.toString() + " km/hr"
+//
+//                    var iconcode = data!!.list[0].weather[0].icon
+//                    var iconurl = "https://openweathermap.org/img/w/" + iconcode + ".png";
+//                    Glide.with(activity!!.applicationContext).load(iconurl)
+//                        .into(weathIconImageWeathFrag)
+//
+//
+////                    val jsonObject : JsonObject = sharedPreferences.getString("weatherJSONShared", "") as JsonObject
+////                    Log.d("Sharedweather", jsonObject.toString())
+//
+//                }
+//
+//
+//            }
+//        })
+//    }
+
     override fun onStop() {
         super.onStop()
-
+        Toast.makeText(activity!!.applicationContext, "Dash Closed", Toast.LENGTH_SHORT).show()
     }
 
     override fun onCellClickListener(name: String) {

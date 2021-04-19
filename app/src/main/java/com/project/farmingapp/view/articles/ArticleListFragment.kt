@@ -57,6 +57,9 @@ class ArticleListFragment : Fragment(), CellClickListener {
 
         viewModel.message3.observe(viewLifecycleOwner, Observer {
 
+//            var datadata =   List<com.google.firebase.firestore.DocumentSnapshot>()
+
+
             Log.d("Art All Data", it[0].data.toString())
 
 
@@ -64,6 +67,14 @@ class ArticleListFragment : Fragment(), CellClickListener {
             recyclerArticleListFrag.adapter = Adapter
             recyclerArticleListFrag.layoutManager = GridLayoutManager(activity!!.applicationContext, 2)
 
+//            Log.d("FruitFrag1", it.toString())
+//            val attributes: Map<String, String> = it.get("attributes") as Map<String, String>
+//            val desc = it.get("description").toString()
+//
+//            val diseases: List<String> = it.get("diseases") as List<String>
+//            Log.d("Diseases", diseases.toString())
+
+//            diseaseTextValueFruitFragArt.text = "\n" + diseases[diseases.size - 1].toString()
         })
 
         // Inflate the layout for this fragment
@@ -90,6 +101,10 @@ class ArticleListFragment : Fragment(), CellClickListener {
             }
     }
 
+//    fun getList(){
+//
+//    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -112,5 +127,6 @@ class ArticleListFragment : Fragment(), CellClickListener {
             .setReorderingAllowed(true)
             .addToBackStack("name")
             .commit()
+        Toast.makeText(activity!!.applicationContext, "Clicked" + name, Toast.LENGTH_SHORT).show()
     }
 }

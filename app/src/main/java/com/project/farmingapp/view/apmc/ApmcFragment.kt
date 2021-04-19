@@ -250,34 +250,25 @@ class ApmcFragment : Fragment() {
             "Barshi",
             "Basmat",
             "Beed",
-            "Bhiwaour",
-            "Raigad"
+            "Bhiwaour"
         )
-
-        var citiesInRajasthan: Array<String> = arrayOf("Ajmer","Alwar","Banswara","Baran","Barmer","Bharatpur","Bhilwara","Bikaner","Bundi","Chittorgarh","Churu","Dausa","Dholpur","Dungarpur","Hanumangarh","Jaipur","Jaisalmer","Jalore","Jhalawar","Jhunjhunu","Jodhpur","Karauli","Kota","Nagaur","Pali","Pratapgarh","Rajsamand","Sawai Madhopur","Sikar","Sirohi","Sri Ganganagar","Tonk","Udaipur")
-
-        var citiesInKerala: Array<String> = arrayOf("Alappuzha","Ernakulam","Idukki","Kannur","Kasaragod","Kollam","Kottayam","Kozhikode","Malappuram","Palakkad","Pathanamthitta","Thiruvananthapuram","Thrissur","Wayanad")
-
-        var citiesInUttarPradesh: Array<String> = arrayOf("Agra","Aligarh","Allahabad","Ambedkar Nagar","Amethi (Chatrapati Sahuji Mahraj Nagar)","Amroha (J.P. Nagar)","Auraiya","Azamgarh","Baghpat","Bahraich","Ballia","Balrampur","Banda","Barabanki","Bareilly","Basti","Bhadohi","Bijnor","Budaun","Bulandshahr","Chandauli","Chitrakoot","Deoria","Etah","Etawah","Faizabad","Farrukhabad","Fatehpur","Firozabad","Gautam Buddha Nagar","Ghaziabad","Ghazipur","Gonda","Gorakhpur","Hamirpur","Hapur (Panchsheel Nagar)","Hardoi","Hathras","Jalaun","Jaunpur","Jhansi","Kannauj","Kanpur Dehat","Kanpur Nagar","Kanshiram Nagar (Kasganj)","Kaushambi","Kushinagar (Padrauna)","Lakhimpur - Kheri","Lalitpur","Lucknow","Maharajganj","Mahoba","Mainpuri","Mathura","Mau","Meerut","Mirzapur","Moradabad","Muzaffarnagar","Pilibhit","Pratapgarh","RaeBareli","Rampur","Saharanpur","Sambhal (Bhim Nagar)","Sant Kabir Nagar","Shahjahanpur","Shamali (Prabuddh Nagar)","Shravasti","Siddharth Nagar","Sitapur","Sonbhadra","Sultanpur","Unnao","Varanasi")
 
         var aa = ArrayAdapter(
             activity!!.applicationContext,
             android.R.layout.simple_spinner_dropdown_item,
             states!!
         )
-
-
-
+//        var aa2 = ArrayAdapter(activity!!.applicationContext, android.R.layout.simple_spinner_dropdown_item, citiesInGujarat)
         spinner1.adapter = aa
+//        spinner2.adapter = aa2
+//        spinner1.setSelection(0, false)
+//        spinner2.setSelection(0, false)
+
 
         someMap = mapOf(
             "Chandigarh" to citiesInMaha,
             "Gujarat" to citiesInGujarat,
-            "Maharashtra" to citiesInMaha,
-            "Rajasthan" to citiesInRajasthan,
-            "Kerala" to citiesInKerala,
-            "Uttar Pradesh" to citiesInUttarPradesh
-
+            "Maharashtra" to citiesInMaha
         )
 
 
@@ -289,6 +280,8 @@ class ApmcFragment : Fragment() {
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 if (p2 == 0) {
+                    Toast.makeText(activity!!.applicationContext, "All states", Toast.LENGTH_LONG)
+                        .show()
                     textAPMCWarning.text = "Please Select State and District"
                     recycleAPMC.visibility = View.GONE
                     textAPMCWarning.visibility = View.VISIBLE
@@ -307,6 +300,7 @@ class ApmcFragment : Fragment() {
             }
 
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                Toast.makeText(activity!!.applicationContext, "Something", Toast.LENGTH_LONG).show()
             }
         }
 
@@ -318,6 +312,8 @@ class ApmcFragment : Fragment() {
 
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 if (p2 == 0) {
+                    Toast.makeText(activity!!.applicationContext, "All District", Toast.LENGTH_LONG)
+                        .show()
                     textAPMCWarning.text = "Please Select District"
                     recycleAPMC.visibility = View.GONE
                     textAPMCWarning.visibility = View.VISIBLE
@@ -327,10 +323,20 @@ class ApmcFragment : Fragment() {
                         getApmc("${someMap!![states!![indexSpinner1!!]]!![p2]}")
                     }
                     indexSpinner2 = p2
+
+
+//                    var aa2 = ArrayAdapter(
+//                        activity!!.applicationContext,
+//                        android.R.layout.simple_spinner_dropdown_item,
+//                        someMap[states[p2]]!!
+//                    )
+//                    spinner2.adapter = aa2
+//                    aa2.notifyDataSetChanged()
                 }
             }
 
             override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                Toast.makeText(activity!!.applicationContext, "Something", Toast.LENGTH_LONG).show()
             }
         }
 
@@ -361,8 +367,11 @@ class ApmcFragment : Fragment() {
         var apmc2: Call<APMCMain>? = null
         if (indexSpinner2 != 0) {
 
+//            apmc2 = APMCApi.apmcInstances.getSomeData(someMap!![states!![indexSpinner1?]]!)
+
             apmc2 = APMCApi.apmcInstances.getSomeData(district)
             Log.d("APMC District", district)
+
 
             apmc2!!.enqueue(object : Callback<APMCMain> {
                 override fun onFailure(call: Call<APMCMain>, t: Throwable) {
@@ -376,6 +385,13 @@ class ApmcFragment : Fragment() {
 
                     val apmcdata = response.body()
                     if (apmcdata != null) {
+//                    var data= mutableListOf<APMCMain>()
+//                    data.add(apmcdata)
+
+//                    val totalRecords = apmcdata.records.size
+//                    for (i in 0..totalRecords){
+//
+//                    }
 
                         val updatedYear = apmcdata.updated_date.toString().slice(0..3)
                         val updatedMonth = apmcdata.updated_date.toString().slice(5..6)
@@ -417,18 +433,26 @@ class ApmcFragment : Fragment() {
                             )
 
                             val ss = apmcdata.records[0].market
+
                             Log.d("PreREc", previousRecord.toString())
 
-                            if (totalRecords == 1) {
+//                            var gettingUpdatedRecords: APMCCustomRecords? = null
+                            if (totalRecords==1){
                                 customRecords.add(previousRecord)
-                            } else {
+                            } else{
                                 var count = 0
-                                for (i in 1..totalRecords - 1) {
+                                for (i in 1..totalRecords-1) {
+                                    Toast.makeText(activity!!.applicationContext, "Single Record", Toast.LENGTH_SHORT).show()
 
+
+//                                var firstMarket2 = ""
                                     if (apmcdata.records[i].market == previousRecord.market) {
                                         previousRecord.commodity.add(apmcdata.records[i].commodity)
                                         previousRecord.min_price.add(apmcdata.records[i].min_price)
                                         previousRecord.max_price.add(apmcdata.records[i].max_price)
+//                                    list1.add(apmcdata.records[i].commodity)
+//                                    list2.add(apmcdata.records[i].min_price)
+//                                    list3.add(apmcdata.records[i].max_price)
                                         count = 1
                                     } else {
                                         count = 0
@@ -446,7 +470,7 @@ class ApmcFragment : Fragment() {
                                         )
                                     }
                                 }
-                                if (count == 1) {
+                                if(count == 1){
                                     Log.d("LastRec", "Yes")
                                     customRecords.add(previousRecord)
                                 }
@@ -460,6 +484,7 @@ class ApmcFragment : Fragment() {
                             recycleAPMC.layoutManager =
                                 LinearLayoutManager(activity!!.applicationContext)
 
+                            //temp.text=rootdata.weather.main.toString()
                             Log.d("bharat222", apmcdata.toString())
                         }
 

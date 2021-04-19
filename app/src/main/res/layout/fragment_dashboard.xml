@@ -102,13 +102,10 @@
                 android:id="@+id/articlesTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="14dp"
+                android:layout_marginVertical="7dp"
                 android:text="Articles"
-
                 android:textSize="21sp"
-                android:textColor="@color/fontColor"
                 android:textStyle="bold"
-
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/weatherCard" />
 
@@ -117,7 +114,6 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:scrollbars="none"
-                android:layout_marginVertical="7dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/articlesTitle">
 
@@ -129,29 +125,24 @@
                         android:id="@+id/cat1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_marginVertical="10dp"
                         android:layout_marginEnd="10dp">
 
                         <LinearLayout
                             android:layout_width="match_parent"
-                            android:background="@drawable/edit_back"
                             android:layout_height="match_parent"
                             android:orientation="vertical">
 
                             <ImageView
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/seed" />
+                                android:src="@drawable/ic_launcher_foreground" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="Seeds"
-                                android:textColor="@color/fontColor"
-                                android:layout_marginVertical="7dp"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -173,16 +164,13 @@
                             <ImageView
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/plant3" />
+                                android:src="@drawable/ic_launcher_foreground" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
                                 android:text="Plants"
-                                android:textColor="@color/fontColor"
-                                android:layout_marginVertical="7dp"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -203,16 +191,13 @@
                             <ImageView
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/method2" />
+                                android:src="@drawable/ic_launcher_foreground" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/fontColor"
                                 android:layout_gravity="center"
                                 android:text="Methods"
-                                android:layout_marginVertical="7dp"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
                         </LinearLayout>
@@ -232,14 +217,11 @@
                             <ImageView
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/disease" />
+                                android:src="@drawable/ic_launcher_foreground" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textColor="@color/fontColor"
-                                android:layout_marginVertical="7dp"
                                 android:layout_gravity="center"
                                 android:text="Diseases"
                                 android:textSize="14sp"
@@ -263,15 +245,12 @@
                             <ImageView
                                 android:layout_width="100dp"
                                 android:layout_height="100dp"
-                                android:scaleType="fitXY"
-                                android:src="@drawable/fruits" />
+                                android:src="@drawable/ic_launcher_foreground" />
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_gravity="center"
-                                android:layout_marginVertical="7dp"
-                                android:textColor="@color/fontColor"
                                 android:text="Fruits"
                                 android:textSize="14sp"
                                 android:textStyle="bold" />
@@ -293,8 +272,7 @@
                 android:id="@+id/productsTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="14dp"
-                android:textColor="@color/fontColor"
+                android:layout_marginVertical="10dp"
                 android:text="Products"
                 android:textSize="21sp"
                 android:textStyle="bold"

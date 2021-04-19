@@ -82,7 +82,7 @@
                 android:id="@+id/descTextTitleFruitFragArt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="14dp"
+                android:layout_marginVertical="7dp"
                 android:text="Description"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -138,11 +138,10 @@
                 android:layout_marginBottom="7dp"
                 android:gravity="fill_horizontal"
                 android:ellipsize="end"
-                android:layout_marginTop="7dp"
                 android:justificationMode="inter_word"
                 android:maxLines="5"
                 android:text="Lorem Impsum"
-                android:lineSpacingExtra="3dp"
+
                 android:textSize="16sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -252,7 +251,6 @@
                 android:text="Soil:"
                 android:textSize="20sp"
                 android:textStyle="bold"
-
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/carouselFruitFragArt" />
 
@@ -261,7 +259,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="7dp"
-                android:lineSpacingExtra="3dp"
                 android:justificationMode="inter_word"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -283,7 +280,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="7dp"
-                android:lineSpacingExtra="3dp"
                 android:justificationMode="inter_word"
                 android:textSize="16sp"
                 app:layout_constraintStart_toStartOf="parent"
@@ -304,7 +300,6 @@
                 android:id="@+id/diseaseTextValueFruitFragArt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:lineSpacingExtra="3dp"
                 android:layout_marginVertical="7dp"
                 android:justificationMode="inter_word"
                 android:textSize="16sp"
@@ -329,7 +324,6 @@
                 android:layout_marginVertical="7dp"
                 android:justificationMode="inter_word"
                 android:textSize="16sp"
-                android:lineSpacingExtra="3dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/stateTextTitleFruitFragArt" />
 
