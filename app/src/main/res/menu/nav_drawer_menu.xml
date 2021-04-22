@@ -2,28 +2,14 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/miItem1"
-        android:title="Articles" />
+        android:title="Item 1" />
     <item
         android:id="@+id/miItem2"
-        android:title="Ecommerce" />
+        android:title="Item 2" />
     <item
         android:id="@+id/miItem3"
-        android:title="Government Policies" />
+        android:title="Item 3" />
     <item
         android:id="@+id/miItem4"
-        android:title="APMC Updates" />
-    <item
-        android:id="@+id/miItem5"
-        android:title="Social media" />
-    <item
-        android:id="@+id/miItem6"
-        android:title="Help/Support" />
-    <item
-        android:id="@+id/miItem7"
-        android:title="Contact Us" />
-    <item
-        android:id="@+id/miItem8"
-        android:title="Log Out" />
-
-
+        android:title="Item 4" />
 </menu>
